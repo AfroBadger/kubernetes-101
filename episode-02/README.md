@@ -55,10 +55,22 @@ Once the container is built, you can see it in your list of `docker images`, and
 
 When you're satisfied the container image works correctly, go ahead and push it up to a Docker registry.
 
-For my example, I'm pushing it to a private Docker Hub repository named `geerlingguy/kube101-go`:
+Before ypu can push to your own repository you will need to tag the image (I.E make a copy with your reposity naming).  In the following examples you will need to replace YOUR_REPO_NAME with your own docker hub username
 
-    docker push geerlingguy/kube101-go
+    docker tag geerlingguy/kube101-go YOUR_REPO_NAME/kube101-go
+    
+You should now see a new entry in your local images list
+
+```
+REPOSITORY                   TAG         IMAGE ID       CREATED          SIZE
+YOUR_REPO_NAME/kube101-go    latest      e06afa6859f0   17 minutes ago   11.7MB
+geerlingguy/kube101-go       latest      e06afa6859f0   17 minutes ago   11.7MB
+```
+
+You are now ready to push the image to your own repository
+
+    docker push YOUR_REPO_NAME/kube101-go
 
 > Note: Pushing to a registry typically requires authentication. Please read the documentation for a guide on how to make sure you are authenticated to your Docker Hub (or other provider) account.
 >
-> Also, it's likely you won't be able to push to my namespace, so you might want to try using your own namespace instead of `geerlingguy` ;-)
+> Also, it's likely you won't be able to push to my namespace, so make sure you are using your own namespace instead of `geerlingguy` ;-)
