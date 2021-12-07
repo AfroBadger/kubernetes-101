@@ -46,7 +46,7 @@ After creating a local cluster with `minikube start`, or a cloud-based cluster, 
 
 You can do that with:
 
-    kubectl create deployment hello-go --image=geerlingguy/kube101-go:1.0.0
+    kubectl create deployment hello-go --image=geerlingguy/kube101-go:latest
 
 Then watch the deployment status with `watch kubectl get deployment hello-go`.
 
@@ -98,7 +98,7 @@ spec:
       imagePullSecrets:
       - name: regcred
       containers:
-      - image: geerlingguy/kube101-go:1.0.0
+      - image: geerlingguy/kube101-go:latest
 ```
 
 Then check on the progress of the rollout with `watch kubectl get deployment hello-go`. Ah, much better now!
